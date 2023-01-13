@@ -54,7 +54,7 @@ int med(int num1,int num2,int ris)
 int somma_divisori(int num3)
 {
     int somma,cont;
-    for(cont=2;cont<=num3;cont++)
+    for(cont=1;cont<=num3;cont++)
     
         if(num3%cont==0)
         somma=somma+cont;
