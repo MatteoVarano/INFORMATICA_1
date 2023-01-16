@@ -35,7 +35,7 @@ int main()
     mcd=med(num1,num2,ris);
     printf("il massimo comune divisore e: %d\n",mcd);
 
-    printf("\ninserisci un numero dal quale verarano sommati i divisori ");
+    printf("\ninserisci un numero dal quale verranno sommati i divisori ");
     scanf("%d",&num3);
     somma=somma_divisori(num3);
     printf("la somma dei divisori di %d e %d \n",num3,somma);
