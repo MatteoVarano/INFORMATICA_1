@@ -26,6 +26,7 @@ int main()
 
     int num1,num2,ris=0,mcd;
     int num3,somma;
+    int base,altezza,area;
 
     printf("inserisci il primo numero ");
     scanf("%d",&num1);
@@ -38,6 +39,14 @@ int main()
     scanf("%d",&num3);
     somma=somma_divisori(num3);
     printf("la somma dei divisori di %d e %d \n",num3,somma);
+
+    printf("\niserisci la base del rettangolo ");
+    scanf("%d",&base);
+    printf("iserisci l'altezza del rettangolo ");
+    scanf("%d",&altezza);
+    area=area_rettangolo(base,altezza);
+    printf("l'area del rettangolo e %d\n",area);
+
 }
 
 int med(int num1,int num2,int ris)
@@ -60,4 +69,11 @@ int somma_divisori(int num3)
         somma=somma+cont;
         return somma;  
        
+}
+
+int area_rettangolo(int x,int y)
+{
+    int ris;
+    ris=x*y;
+    return ris;
 }
