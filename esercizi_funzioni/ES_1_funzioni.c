@@ -47,6 +47,7 @@ int main()
     area=area_rettangolo(base,altezza);
     printf("l'area del rettangolo e %d\n",area);
 
+    return 0;
 }
 
 int med(int num1,int num2,int ris)
