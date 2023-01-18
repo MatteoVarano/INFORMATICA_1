@@ -2,6 +2,12 @@
 * \mainpage funzioni 
 *
 * @brief 
+* 1) Scrivere una funzione chiamata "mcd" che prende in input due numeri interi e restituisce 
+*    il loro massimo comune divisore utilizzando l'algoritmo di Euclide. 
+* 2) Scrivere una funzione chiamata "somma_divisori" che prende in input un numero intero 
+*    e restituisce la somma dei suoi divisori.
+* 3) Scrivere una funzione chiamata "area_rettangolo" che prende in input la base e 
+*    l'altezza di un rettangolo e restituisce l'area. 
 * 
 * @author Matteo Varano
 * @date 11/01/2023
