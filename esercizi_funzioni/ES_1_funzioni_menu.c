@@ -16,7 +16,6 @@
 
 #include<stdio.h>
 #include<limits.h>
-#include<stdlib.h>
 
 /*menu che chiede ad inizio programma quale funzione usare*/
 int menu();
