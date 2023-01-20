@@ -46,9 +46,9 @@ int main()
     somma=somma_divisori(num3);
     printf("la somma dei divisori di %d e %d \n",num3,somma);
 
-    printf("\niserisci la base del rettangolo ");
+    printf("\ninserisci la base del rettangolo ");
     scanf("%d",&base);
-    printf("iserisci l'altezza del rettangolo ");
+    printf("inserisci l'altezza del rettangolo ");
     scanf("%d",&altezza);
     area=area_rettangolo(base,altezza);
     printf("l'area del rettangolo e %d\n",area);
