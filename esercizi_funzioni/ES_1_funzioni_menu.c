@@ -16,6 +16,7 @@
 
 #include<stdio.h>
 #include<limits.h>
+#include<stdlib.h>
 
 /*menu che chiede ad inizio programma quale funzione usare*/
 int menu();
@@ -31,8 +32,6 @@ int area_rettangolo(int,int);
 
 int main()
 {
-    printf("Matteo Varano \n");
-
     int num1,num2,ris=0,mcd,r;
     int num3,somma;
     int base,altezza,area;
@@ -62,7 +61,8 @@ int main()
                     scanf("%d",&altezza);
                     area=area_rettangolo(base,altezza);
                     printf("l'area del rettangolo e %d\n",area);  
-                    break;                   
+                    break;
+            default: printf("hai inserito un numero sbagliato\n");                           
         }
     }
     while(r!=0);
@@ -73,6 +73,7 @@ int main()
 int menu()
 {
     int risp;
+    printf("Matteo Varano \n");
     printf("\ndigita 0 se vuoi uscire dal programma\n");
     printf("digita 1 per calcolare l'mcd tra due numeri interi\n");
     printf("digita 2 per calcolare la somma tra i divisori du un numero intero\n");
