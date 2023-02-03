@@ -15,7 +15,6 @@
 */
 
 #include<stdio.h>
-#include<limits.h>
 
 /*menu che chiede ad inizio programma quale funzione usare*/
 int menu();
@@ -26,9 +25,16 @@ void fibonacci(int);
 /*controlla se il numero inserito dall'utente e' pari o dispari restiruendo 1 se dispari e 0 se pari*/
 int pari_dispari(int);
 
+/*restituisce la somma e i divisori di un numero inserito da tastiera*/
+void stampa_divisori(int); 
+
+/*mi restituisce tutti i numeri aici da 0 a 1500*/
+void numeri_amici(void);
+int somma_divisori(int);
+
 int main()
 {
-    int num1,r;
+    int num1,r,ris;
 
     do
     {
@@ -41,20 +47,24 @@ int main()
                     scanf("%d",&num1);
                     fibonacci(num1);
                     break; 
-            case 2: printf("inserisci un numero per controllare se e' pari o dispari: ");
+            case 2: printf("\ninserisci un numero per controllare se e' pari o dispari: ");
                     scanf("%d",&num1);
-                    r=pari_dispari(num1);
-                    if(r==0)
+                    ris=pari_dispari(num1);
+                    if(ris==0)
                     {
-                        printf("il numero e' pari\n");
+                        printf("il numero e' pari\n\n");
                     }
                     else
                     {
-                        printf("il numero e' dispari\n");
+                        printf("il numero e' dispari\n\n");
                     }
                     break;
-            case 3: break;
-            case 4: break;
+            case 3: printf("inserisci un numero da cui verra trovato i divisori e la loro somma: ");
+                    scanf("%d",&num1);
+                    stampa_divisori(num1);
+                    break;
+            case 4: numeri_amici();
+                    break;
             default: printf("hai inserito un numero sbagliato\n");                           
         }
     }
@@ -70,6 +80,8 @@ int menu()
     printf("\ndigita 0 se vuoi uscire dal programma\n");
     printf("digita 1 per scrivere tanti numeri di fibonacci quanti ne sceglie l'utente\n");
     printf("digita 2 per controllare se il numero che inserisci e' pari o dispari\n");
+    printf("digita 3 per calcolare la somma tra i divisori du un numero intero\n");
+    printf("digita 4 per trovare tutti i numeri amici da 0 a 1500\n");
     scanf("%d",&risp);
     return risp;
 }
@@ -91,14 +103,50 @@ int pari_dispari(int x)
 {
     int pari_dispari;
 
-     if(x%2==0)
-     {
-        pari_dispari=0;
-     }
-     else
-     {
-        pari_dispari=1;
-     }
-    return pari_dispari;
+    while(x>=1)
+    {
+        x=x-2;
+    }
+
+    return x;
 }
 
+void stampa_divisori(int x)
+{
+    int somma=0,cont;
+    for(cont=1;cont<=x;cont++)
+    {
+        if(x%cont==0)
+        {
+            somma=somma+cont;
+            printf("%d\n",cont);
+            
+        }    
+    }  
+    printf("la somma dei divisori di %d e %d \n",x,somma);
+    return;        
+}
+
+void numeri_amici()
+{
+    int cont,ris,ris2;
+    for(cont=0;cont<=1500;cont++)
+    {
+        ris=somma_divisori(cont)-cont;
+        ris2=somma_divisori(ris)-ris;
+    }
+    if(cont==ris2)
+    printf("%d",ris);
+
+    return;
+}
+
+int somma_divisori(int num3)
+{
+    int somma,cont;
+    for(cont=1;cont<=num3;cont++)
+    
+        if(num3%cont==0)
+        somma=somma+cont;
+        return somma; 
+}
