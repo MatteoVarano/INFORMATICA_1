@@ -130,24 +130,7 @@ void stampa_divisori(int x)
 
 void numeri_amici()
 {
-    int cont,cont2,ris,ris2,r;
-    for(cont=1;cont<=1500;cont++)
-    {
-        ris=somma_divisori(cont)-cont;
-    
-        for(cont2=1;cont2<=1500;cont2++)
-        {
-            ris2=somma_divisori(cont2)-cont2;
-        
-            if(ris == cont2 && ris2 == cont && cont != cont2 && r!= cont2)
-            {
-                printf("%d %d",ris,ris2);
-
-                r=cont;
-            }
-        }
-    }
-    return;           
+               
 }
 
 int somma_divisori(int x)
