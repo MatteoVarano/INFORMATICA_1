@@ -63,7 +63,8 @@ int main()
                     scanf("%d",&num1);
                     stampa_divisori(num1);
                     break;
-            case 4: numeri_amici();
+            case 4: printf("i numeri amici sono\n");
+                    numeri_amici();
                     break;
             default: printf("hai inserito un numero sbagliato\n");                           
         }
@@ -129,24 +130,32 @@ void stampa_divisori(int x)
 
 void numeri_amici()
 {
-    int cont,ris,ris2;
-    for(cont=0;cont<=1500;cont++)
+    int cont,cont2,ris,ris2,r;
+    for(cont=1;cont<=1500;cont++)
     {
         ris=somma_divisori(cont)-cont;
-        ris2=somma_divisori(ris)-ris;
-    }
-    if(cont==ris2)
-    printf("%d",ris);
+    
+        for(cont2=1;cont2<=1500;cont2++)
+        {
+            ris2=somma_divisori(cont2)-cont2;
+        
+            if(ris == cont2 && ris2 == cont && cont != cont2 && r!= cont2)
+            {
+                printf("%d %d",ris,ris2);
 
-    return;
+                r=cont;
+            }
+        }
+    }
+    return;           
 }
 
-int somma_divisori(int num3)
+int somma_divisori(int x)
 {
     int somma,cont;
-    for(cont=1;cont<=num3;cont++)
+    for(cont=1;cont<=x;cont++)
     
-        if(num3%cont==0)
+        if(x%cont==0)
         somma=somma+cont;
         return somma; 
 }
