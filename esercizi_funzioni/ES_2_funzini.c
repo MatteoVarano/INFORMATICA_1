@@ -29,7 +29,7 @@ int pari_dispari(int);
 void stampa_divisori(int); 
 
 /*mi restituisce tutti i numeri aici da 0 a 1500*/
-void numeri_amici(void);
+void numeri_amici();
 int somma_divisori(int);
 
 int main()
@@ -63,8 +63,7 @@ int main()
                     scanf("%d",&num1);
                     stampa_divisori(num1);
                     break;
-            case 4: printf("i numeri amici sono\n");
-                    numeri_amici();
+            case 4: numeri_amici();
                     break;
             default: printf("hai inserito un numero sbagliato\n");                           
         }
@@ -128,17 +127,40 @@ void stampa_divisori(int x)
     return;        
 }
 
-void numeri_amici()
+void numeri_amici(void)
 {
-               
+    int n1,n2,r;
+
+    for(int i = 1; i<1500; i++)
+    {
+        n1 = somma_divisori(i)-i;
+        
+        for(int j = 1; j<1500; j++)
+        {
+            n2 = somma_divisori(j) - j;
+
+            if(n1 == j && n2 == i && i != j && r!= j)
+            {
+                printf("\n%d e %d sono numeri amici\n", i, j);
+
+                r = i;
+            }
+            
+        }
+    }
 }
 
 int somma_divisori(int x)
 {
-    int somma,cont;
-    for(cont=1;cont<=x;cont++)
-    
-        if(x%cont==0)
-        somma=somma+cont;
-        return somma; 
+    int r = 0;  //conterrà la somma di tutti i divisori
+
+    //itero tutti i numeri tra 1 e il numero
+    for(int i = 1; i<=x; i++)
+    {
+        if(x%i==0) 
+            r += i;    //se l'indice del ciclo è un divisore lo sommo  
+    }
+
+    //restituisco il risultato
+    return r;
 }
