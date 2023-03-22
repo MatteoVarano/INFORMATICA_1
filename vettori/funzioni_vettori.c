@@ -13,7 +13,13 @@ void caricarandom(int v[]);
 
 void stampavettori(int v[]);
 
-void ordinavettore(int v[]);
+void ordinavettore1(int v[]);
+
+void scambiavetore(int v[]);
+
+void bubblesort(int v[]);
+
+int contamutipli(int v[],int);
 
 int main()
 {
@@ -34,9 +40,20 @@ int main()
             case 3: printf("\ni numeri nel vettore sono\t");
                     stampavettori(v);
                     break;
-            case 4: printf("\ni numeri nel vettore ordinati sono\t");
-                    ordinavettore(v);
-                    break;                           
+            case 4: printf("\nil vettore è stato ordinato\t");
+                    ordinavettore1(v);
+                    break;
+            case 5: printf("\n il vettore è stato ordinato");
+                    bubblesort(v);
+                    break;
+            case 6: printf("il vettore è stato cambiato");
+                    scambiavetore(v);
+                    break;
+            case 7: printf("inserisci un numero: ");
+                    scanf("%d",&r);
+                    r=contamutipli(v,r);
+                    printf("multipli nel vettore %d\n",r);
+                    break;                         
             default: printf("hai inserito un numero sbagliato\n");                           
         }
     }
@@ -49,12 +66,14 @@ int main()
 int menu()
 {
     int risp;
-    printf("Matteo Varano \n");
-    printf("\ndigita 0 se vuoi uscire dal programma\n");
+    printf("\n\n\ndigita 0 se vuoi uscire dal programma\n\n");
     printf("digita 1 per inserire i numeri da tastiera\n");
-    printf("digita 2 per caricare numeri randomici\n");
+    printf("digita 2 per caricare numeri randomici\n\n");
     printf("digita 3 per stampare il vettore\n");
     printf("digita 4 per ordinare il vettore\n");
+    printf("digita 5 per ordinare il vettore in un altro modo\n");
+    printf("digita 6 per scambiare l'ordine del vettore\n");
+    printf("digita 7 per contare i multipli di un numero\n");
     scanf("%d",&risp);
     return risp;
 }
@@ -90,7 +109,7 @@ void stampavettori(int v[])
     
 }
 
-void ordinavettore(int v[])
+void ordinavettore1(int v[])
 {
     int z,i,j;
     
@@ -106,4 +125,52 @@ void ordinavettore(int v[])
             }
         }
     }
+}
+
+void scambiavetore(int v[])
+{
+    int i,j,aiuto;
+    for(i=0,j=N-1;i<N/2;i++,j--)
+    {
+        aiuto=v[i];
+        v[i]=v[j];
+        v[j]=aiuto;
+    }
+}
+
+void bubblesort(int v[])
+{
+    int fine = N-1;
+    int scambio = 0;
+    int z, c;
+
+    do
+    {
+        scambio = 0;
+        for(int i = 0; i<fine; i++)
+        {
+            if(v[i]>v[i+1])
+            {
+                scambio=1;
+                z=v[i];
+                v[i] = v[i+1];
+                v[i+1] = z;
+                
+                c=i;
+            }
+        }
+        fine = c;
+    } while(scambio);
+}
+
+int contamutipli(int v[],int i)
+{
+int c=0;
+
+    for(int i = 1; i<N; i++)
+    {
+        if(v[i]%i==0) 
+        c++;
+    }
+return c;
 }
