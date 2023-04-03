@@ -21,10 +21,12 @@ void bubblesort(int v[]);
 
 int contamutipli(int v[],int);
 
+int ricercabinaria(int v[],int);
+
 int main()
 {
     int v[N];
-    int cont=0,i,r;
+    int cont=0,i,r,m;
 
         do
     {
@@ -53,6 +55,11 @@ int main()
                     scanf("%d",&r);
                     r=contamutipli(v,r);
                     printf("multipli nel vettore %d\n",r);
+                    break;
+            case 8: printf("inserisci un numero da cercare nel vettore: ");
+                    scanf("%d",&m);
+                    r=ricercabinaria(v,m);
+                    printf("%d\n",r);
                     break;                         
             default: printf("hai inserito un numero sbagliato\n");                           
         }
@@ -74,6 +81,7 @@ int menu()
     printf("digita 5 per ordinare il vettore in un altro modo\n");
     printf("digita 6 per scambiare l'ordine del vettore\n");
     printf("digita 7 per contare i multipli di un numero\n");
+    printf("digita 8 per ricercare un numero1\n");
     scanf("%d",&risp);
     return risp;
 }
@@ -174,3 +182,22 @@ int c=0;
     }
 return c;
 }
+
+int ricercabinaria(int v[], int x)
+{
+    int inf = 0, sup = N-1, m;
+    do
+    {
+        m = (inf + sup)/2;
+
+        if(v[m] > x) sup = m-1;
+
+        if(v[m] < x) inf = m+1;
+
+        if(inf > sup) return -1;
+
+    } while(v[m] != x);
+
+    return m;
+}
+
