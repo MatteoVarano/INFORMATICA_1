@@ -31,7 +31,7 @@ via.*/
 
 int main()
 {
-    int m[R][C],r,y,k,x;
+    int m[R][C],r=0,y,k,x;
     do
     {
         r=menu();
@@ -50,6 +50,19 @@ int main()
             case 4: r=pariMat(m);
                     printf("%d\n",r);
                     break;
+            case 5: printf("inserisci il numero della colonna che si vuole controllare\n");
+                    scanf("%d",&k);
+                    printf("inserisci il numero che verra usato per conrollare quanti numeri sono divisori di esso\n");
+                    scanf("%d",&x);
+                    r=conta(m,k,x);
+                    printf("sono stati trovati %d divisori di %d",r,x);
+                    break;
+            case 6: printf("inserisci un numero\n");
+                    scanf("%d",&x);
+                    ScambiaMat(m,x);
+                    break;
+            case 7: Diagonale(m);
+                break;
             default: printf("hai inserito un numero sbagliato");    
         }
     }   
@@ -64,6 +77,9 @@ int menu()
     printf("digita 2 per stampare la matrice\n");
     printf("digita 3 per scambiare tutti i numei dispari\n");
     printf("digita 4 per trovare se nella matrice ci sono solo numeri pari o dispari\n");
+    printf("digita 5 per controllare quali numeri sono divisibili per un numero inserito dall'utente\n");
+    printf("digita 6 per scambiare il numero più grande del vettore con il più piccolo\n");
+    printf("digita 7 per scambiare le due diagonali con 1 e 0\n");
     scanf("%d",&risp);
     return risp;
 }
@@ -125,4 +141,40 @@ int pariMat(int m [ ] [ C ])
    return 1; 
 }
 
+int conta (int m [ ] [ C ], int k, int x)
+{
+    int i,j,cont=0;
+    for(i=0;i<R;i++)
+    {
+        if(m[i][k]%x==0)
+        {
+            cont++;
+        }
+    }
+    return cont;
+}
 
+void ScambiaMat (int m [ ] [ C ], int x)
+{
+    int max = 0, min = 0, y;
+
+    for(int j = 0; j<C; j++)
+    {
+        if(m[x][j]>m[x][max]) max = j;
+        if(m[x][j]<m[x][min]) min = j;
+    }
+
+    printf("%d\t%d\n\n", max, min);
+    y = m[x][max];
+    m[x][max] = m[x][min];
+    m[x][min] = y;
+}
+
+void Diagonale(int m [ ] [ C ])
+{
+    for(int i=0, j=C-1; i<C; i++, j--)
+    {
+        m[i][i] = 0;
+        m[j][i] = 1;
+    }
+}
