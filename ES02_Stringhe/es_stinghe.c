@@ -50,16 +50,23 @@ int main()
     scambia(m,2,5);
     stampa(m);
 
-    
+    r=primaAlfabeto(m);
+    printf("\nla prima parola nella matrice in ordine alfabetico e' %s\n\n",m[r]);
+
+    ordina(m);
+    stampa(m);
+
+    return 0;
 }
 
 void carica(char m[][C])
 {
-    int i;
+    int i,riga=1;
     for(i=0;i<R;i++)
     {
-        printf("inserisci una parola:");
+        printf("\ninserisci una parola nella riga %d: ",riga);
         scanf("%s", m[i]);
+        riga++;
     }
 }
 
@@ -94,5 +101,26 @@ void scambia(char m[][C], int k, int t)
 
 int primaAlfabeto(char m[][C])
 {
-    
+    int alfabeto=0,i;
+    for(i=1;i<R;i++)
+    {
+        if(strcmp(m[alfabeto],m[i])>0)
+        alfabeto=i;
+    }
+    return alfabeto;
+}
+
+void ordina(char m[][C])
+{
+    int i,j;
+    for(i=0;i<R;i++)
+    {
+        for(j=i+1;j<R;j++)
+        {
+            if(strcmp(m[i],m[j])>0)
+            {
+                scambia(m,i,j);
+            }
+        }
+    }
 }
