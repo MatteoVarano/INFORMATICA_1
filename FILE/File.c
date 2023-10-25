@@ -92,7 +92,7 @@ void copianome(char fin[], char fout[])
 
 void contacaratteri(char fin[])
 {
-    int cont=0,contrighe=1,contparole=0;
+    int cont=0,contrighe=1,contparole=1;
     char p;
     FILE * err1;
 
@@ -104,22 +104,21 @@ void contacaratteri(char fin[])
 
         while((p=fgetc(err1)) != EOF)
         {
-            if(p>='A' && p<='Z')
+            if(p==' ' || p=='\n')
             {
                 contparole++;
             }
-            else
+
             if(p>='A' && p<='Z' || p>='a' && p<='z')
             {
                 cont++;
             }
-            else
+
+            if(p=='\n')
             {
-                if(p=='\n')
-                {
-                    contrighe++;
-                }
+                contrighe++;
             }
+            
 
         }
     }
