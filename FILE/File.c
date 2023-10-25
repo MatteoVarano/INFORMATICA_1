@@ -33,6 +33,8 @@ int main()
     copianome("nomi.txt","NOMI2.txt");
 
     contacaratteri("Caratteri.txt");
+
+    return 0;
 }
 
 void copiafile(char fin[],char fout[])
