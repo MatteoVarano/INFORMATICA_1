@@ -29,6 +29,10 @@ void contaparidispari(char fin[], char fout1[], char fout2[]);
 composto da una sequenza di numeri di una cifra separati da uno spazio bianco e successivamente scrive 2 file,
  pari.txt e dispari.txt, nei quali dovrai inserire i numeri che hai letto a seconda del loro valore pari o dispari
 */
+void cesareCrypt(char fin[],char fout[]);
+void cesareDecrypt(char fin[],char fout[]);
+/*Scrivere le funzioni cesareCrypt e cesareDecrypt che criptano o decriptano un file in input di una chiave key,
+ usando l’algoritmo di Cesare. Commentare adeguatamente il codice scritto.*/
 
 int main()
 {
@@ -41,6 +45,8 @@ int main()
     contacaratteri("c/Caratteri.txt");
 
     contaparidispari("d/numeri.txt","d/pari.txt","d/dispari.txt");
+
+    cesareCrypt("e/testo.txt","e/crypt.txt");
 
     return 0;
 }
@@ -110,7 +116,7 @@ void contacaratteri(char fin[])
 
     if(err1 != 0)
     {
-        printf("\nil file e' stato aperto correttamente\n");
+        printf("\ni file sono stati aperti correttamente\n");
 
         while((p=fgetc(err1)) != EOF)
         {
@@ -131,6 +137,8 @@ void contacaratteri(char fin[])
             
 
         }
+
+        fclose(err1);
     }
     else 
     {
@@ -154,7 +162,7 @@ void contaparidispari(char fin[], char fout1[], char fout2[])
 
     if(err1 && err2 && err3 !=0)
     {
-        printf("i file sono stati aperti correttamente\n");
+        printf("\ni file sono stati aperti correttamente\n");
 
         while((c=fgetc(err1))!= EOF)
         {
@@ -186,5 +194,78 @@ void contaparidispari(char fin[], char fout1[], char fout2[])
                 }    
             }
         }
+        fclose(err1);
+        fclose(err2);
+        fclose(err3);
+    }
+    else 
+    {
+        printf("file non aperto\n");
     }
 }
+
+void cesareCrypt(char fin[],char fout[])
+{
+    char c;
+    FILE * err1;
+    FILE * err2;
+
+    err1=fopen(fin,"r");
+    err2=fopen(fout,"a");
+
+    if(err1 != 0)
+    {
+        printf("il file e' stato aperto correttamente\n");
+
+        while((c=fgetc(err1))!=EOF)
+        {
+            if(c>='A' && c<='W')
+            {
+                c+=3;
+                fputc(c,err2);
+            }
+            else
+            {
+                if(c>='X' && c<='Z')
+                {
+                     c-=25;
+                     fputc(c,err2);
+                }
+                else 
+                {
+                    if(c==' ')
+                    {
+                        fputc(' ',err2);
+                    }
+                }
+            }
+
+            if(c>='a' && c<='w')
+            {
+                c+=3;
+                fputc(c,err2);
+            }
+            else
+            {
+                if(c>='x' && c<='z')
+                {
+                     c-=25;
+                     fputc(c,err2);
+                }
+                else 
+                {
+                    if(c==' ')
+                    {
+                        fputc(' ',err2);
+                    }
+                }
+            }
+        }
+
+    }
+    else
+    {
+        printf("file non aperto\n");
+    }
+}
+
