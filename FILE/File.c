@@ -48,6 +48,8 @@ int main()
 
     cesareCrypt("e/testo.txt","e/crypt.txt");
 
+    cesareDecrypt("e/crypt.txt","e/decrypt.txt");
+
     return 0;
 }
 
@@ -211,7 +213,7 @@ void cesareCrypt(char fin[],char fout[])
     FILE * err2;
 
     err1=fopen(fin,"r");
-    err2=fopen(fout,"a");
+    err2=fopen(fout,"w");
 
     if(err1 != 0)
     {
@@ -261,7 +263,8 @@ void cesareCrypt(char fin[],char fout[])
                 }
             }
         }
-
+        fclose(err1);
+        fclose(err2);
     }
     else
     {
@@ -269,3 +272,68 @@ void cesareCrypt(char fin[],char fout[])
     }
 }
 
+void cesareDecrypt(char fin[],char fout[])
+{
+    char c;
+    FILE * err1;
+    FILE * err2;
+
+    err1=fopen(fin,"r");
+    err2=fopen(fout,"w");
+
+    if(err1 != 0)
+    {
+        printf("il file e' stato aperto correttamente\n");
+
+        while((c=fgetc(err1))!=EOF)
+        {
+            if(c>='D' && c<='Z')
+            {
+                c-=3;
+                fputc(c,err2);
+            }
+            else
+            {
+                if(c>='A' && c<='C')
+                {
+                     c+=25;
+                     fputc(c,err2);
+                }
+                else 
+                {
+                    if(c==' ')
+                    {
+                        fputc(' ',err2);
+                    }
+                }
+            }
+
+            if(c>='d' && c<='z')
+            {
+                c-=3;
+                fputc(c,err2);
+            }
+            else
+            {
+                if(c>='a' && c<='c')
+                {
+                     c+=25;
+                     fputc(c,err2);
+                }
+                else 
+                {
+                    if(c==' ')
+                    {
+                        fputc(' ',err2);
+                    }
+                }
+            }            
+        }
+        fclose(err1);
+        fclose(err2);
+    }
+    else
+    {
+        printf("file non aperto\n");
+    }
+}
