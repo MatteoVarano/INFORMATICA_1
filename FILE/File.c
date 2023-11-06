@@ -170,30 +170,14 @@ void contaparidispari(char fin[], char fout1[], char fout2[])
         {
             if(c % 2== 0 && c != ' ')
             {
-                if(c+1==' ')
-                {
-                    fputc(c,err2);
-                    putc(' ', err2);
-                }
-                else
-                {
-                   putc(' ', err2);
-                   fputc(c,err2); 
-                }
+                fputc(c,err2);
+                putc(' ', err2);
             }
             
             if(c % 2== 1 && c != ' ')
             {
-                if(c+1==' ')
-                {
-                    fputc(c,err3);
-                    putc(' ', err3);
-                }
-                else
-                {
-                    putc(' ', err3);
-                    fputc(c,err3);
-                }    
+                fputc(c,err3);
+                putc(' ', err3);
             }
         }
         fclose(err1);
