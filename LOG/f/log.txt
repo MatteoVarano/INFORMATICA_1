@@ -1,0 +1,4 @@
+[2023-11-08 12:00:17] Messaggio log 1
+[2023-11-08 12:01:48] Messaggio log 1
+[2023-11-08 12:03:26] Messaggio log 2
+[2023-11-08 12:03:26] Messaggio log 1

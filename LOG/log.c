@@ -16,16 +16,14 @@ void writeLog(const char *message);
 
 int main(int argc, char *argv[])
 {
-    FILE * logFile;
-    logFile=fopen("log.txt","a");
-
     writeLog("Messaggio log 1");
+    writeLog("Messaggio log 2");
 }
 
 void writeLog(const char *message) 
 {
     FILE * logFile;
-    logFile=fopen("log.txt","a");
+    logFile=fopen("f/log.txt","a");
     time_t currentTime;
     struct tm *localTime;
     time(&currentTime);
