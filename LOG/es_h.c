@@ -60,7 +60,7 @@ void cesareCrypt(char fin[],char fout[],int chiave)
             }
             else
             {
-                if(c>='X' && c<='Z')
+                if(c>='Z'-chiave && c<='Z')
                 {
                      c-=25;
                      fputc(c,err2);
@@ -81,7 +81,7 @@ void cesareCrypt(char fin[],char fout[],int chiave)
             }
             else
             {
-                if(c>='x' && c<='z')
+                if(c>='z'-chiave && c<='z')
                 {
                      c-=25;
                      fputc(c,err2);
