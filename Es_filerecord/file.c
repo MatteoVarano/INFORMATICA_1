@@ -42,7 +42,9 @@ int contacognome(char fin[],char n[]);
 
 void media(char fin[]);
 
-int cercacognome(char fin[], char n[]);
+int cercacognomeprimo(char fin[], char n[]);
+
+int cercacognomeultimo(char fin[], char n[]);
 
 int contarecord(char fin[]);
 
@@ -63,7 +65,7 @@ int main()
 
     printf("inserisci il cognome da trovare: ");
     scanf("%s",n);
-    r=cercacognome("file.dat",n);
+    r=cercacognomeprimo("file.dat",n);
     if(r!=-1)
     {
         printf("il cognome e' stato trovato il posizione:%d\n",r);
@@ -72,6 +74,8 @@ int main()
     {
         printf("il cognome non e' stato trovato");
     }
+
+
 
     r=contarecord("file.dat");
     printf("i record sono %d\n",r);    
@@ -216,7 +220,7 @@ void media(char fin[])
     fclose(err1);    
 }
 
-int cercacognome(char fin[], char n[])\
+int cercacognomeprimo(char fin[], char n[])
 {
     studente s;
     FILE * err1; 
@@ -239,6 +243,29 @@ int cercacognome(char fin[], char n[])\
     fclose(err1);
 
     return c; 
+}
+
+int cercacognomeultimo(char fin[], char n[])
+{
+    FILE * err1;
+    err1=fopen(fin, "rb");
+
+    studente s;
+    int c=-1;
+
+    if(err1!=NULL)
+        while(!feof(err1))
+        {
+            fread(&s, sizeof(studente), 1, err1);
+
+            if(strcmp(s.cognome, n)==0) 
+            {
+                c = ftell(err1) / sizeof(studente);
+            }
+        }
+
+    return c;
+    fclose(err1);
 }
 
 int contarecord(char fin[])
