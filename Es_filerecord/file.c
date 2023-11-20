@@ -254,5 +254,7 @@ int contarecord(char fin[])
         d=ftell(err1);
     }
 
-    return d/sizeof(studente);    
+    d/=sizeof(studente);
+
+    return d;    
 }
