@@ -28,7 +28,9 @@ void crea(char fin[]);
 
 void stampa(char fin[]);
 
-int modifica(char fin[],char s[], char s2[]);
+int modifica1(char fin[],char s[], char s2[]);
+
+void modifica2(char fin[]);
 
 int main()
 {
@@ -38,13 +40,16 @@ int main()
 
     stampa("prova.dat");
 
-    r=modifica("prova.dat","Rossi","Bianchi");
+    r=modifica1("prova.dat","Rossi","Bianchi");
     printf("i nomi sostituiti sono %d\n",r);
 
     printf("\ndopo funzione modifica\n");
     stampa("prova.dat");
 
-    
+    modifica2("prova.dat");
+    stampa("prova.dat");
+
+    return 0;
 }
 
 void crea(char fin[])
@@ -99,7 +104,7 @@ void stampa(char fin[])
     fclose(err1);
 }
 
-int modifica(char fin[],char s[], char s2[])
+int modifica1(char fin[],char s[], char s2[])
 {
     int r;
     FILE * err1 = fopen(fin,"rb+");
@@ -121,4 +126,29 @@ int modifica(char fin[],char s[], char s2[])
         }    
     }
     return r;
+}
+
+void modifica2(char fin[])
+{
+    char n[R], c[R];
+    FILE * err1 = fopen(fin,"rb+");
+    studente f;
+
+    printf("inserisci un nome\n");
+    scanf("%s",n);
+    printf("inserisci un cognome\n");
+    scanf("%s",c);
+
+    if(err1!=NULL)
+    {
+        while(fread(&f, sizeof(studente), 1, err1))
+        {
+                fseek(err1,-sizeof(studente),SEEK_CUR);
+                strcpy(f.cognome,c);
+                fwrite(&f, sizeof(studente), 1 , err1);
+                strcpy(f.nome,n);
+                fwrite(&f, sizeof(studente), 1, err1);
+                fseek(err1,0,SEEK_CUR);    
+        }    
+    }
 }
