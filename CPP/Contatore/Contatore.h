@@ -30,5 +30,19 @@ class Contatore{
 
         void stampa();  //stampa il valore dei due attributi privati
 
+        class Contatoredoppio{};
+
+};
+
+
+
+class Contatoredoppio: public Contatore{
+    private:
+        int valore;
+        int stato;
+    public:
+        Contatoredoppio();
+
+        void inc();
 };
 #endif

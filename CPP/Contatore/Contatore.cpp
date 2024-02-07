@@ -62,3 +62,12 @@ using namespace std;
             cout<<endl;
         } //stampa il valore dei due attributi privati
 
+
+        Contatoredoppio::Contatoredoppio(){
+            Contatoredoppio::Contatore ();
+        }
+
+        void Contatoredoppio::inc(){
+            Contatore::inc();
+            Contatore::inc();
+        }
