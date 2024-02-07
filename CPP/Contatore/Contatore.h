@@ -33,11 +33,4 @@ class Contatore{
         class Contatoredoppio{};
 
 };
-
-class Contatoredoppio: public Contatore{
-    public:
-        Contatoredoppio();
-
-        void inc();
-};
 #endif

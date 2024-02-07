@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Contatore.h"
+#include "Contatoredoppio.h"
 
 using namespace std;
 
