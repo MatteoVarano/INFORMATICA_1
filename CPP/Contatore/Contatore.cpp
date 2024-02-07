@@ -1,6 +1,5 @@
 #include <iostream>
 #include "Contatore.h"
-#include "Contatoredoppio.h"
 
 using namespace std;
 
@@ -62,13 +61,3 @@ using namespace std;
             cout<<"passo: "<<passo<<endl;
             cout<<endl;
         } //stampa il valore dei due attributi privati
-
-
-        Contatoredoppio::Contatoredoppio(){
-            Contatoredoppio::Contatore ();
-        }
-
-        void Contatoredoppio::inc(){
-            Contatore::inc();
-            Contatore::inc();
-        }
