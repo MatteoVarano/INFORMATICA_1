@@ -34,12 +34,7 @@ class Contatore{
 
 };
 
-
-
 class Contatoredoppio: public Contatore{
-    private:
-        int valore;
-        int stato;
     public:
         Contatoredoppio();
 
