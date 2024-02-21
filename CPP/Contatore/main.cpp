@@ -15,7 +15,7 @@ Contatoredoppio C4;
 int main(){
 
     int valore,passo;
-/*
+
     cout<<"**primo contatore**"<<endl;
     C1.stampa();
     cout<<"inserisci valore"<<endl;
@@ -38,7 +38,7 @@ int main(){
     C3.dec();
     cout<<"valore di Valore decrementato del valore di Passo"<<endl;
     C3.stampa();
-*/
+
     cout<<"**quarto contatore con ereditarieta**"<<endl;
     C4.stampa();
     C4.inc();
