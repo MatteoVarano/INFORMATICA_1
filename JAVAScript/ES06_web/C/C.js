@@ -5,5 +5,5 @@ text.addEventListener("focus", () => {
 });
 
 text.addEventListener("blur", () => {
-    text.style.backgroundColor = "white";
+      text.style.backgroundColor = "white";
 });
