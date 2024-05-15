@@ -1,0 +1,10 @@
+body{
+    text-align: center;
+    margin: 300px;   
+}
+
+input{
+    height: 50px;
+    width: 350px;
+    font-size: 20px;
+}
