@@ -1,0 +1,23 @@
+body{
+    align-items: center;
+}
+
+table {
+    margin: auto;
+    flex-wrap: wrap;
+    border-collapse: collapse;
+}
+
+td, th {
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+
+
+    text-align: center;
+
+}
+
+.evidenziato {
+    background-color: rgba(0, 255, 170, 0.5)
+}
